@@ -1,0 +1,34 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class railfence {
+public static void main(String args[]) throws IOException
+{
+	BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+	System.out.println("Enter Text :");
+	String msg=bf.readLine();
+	msg = msg.replaceAll("\\s", "");
+	String oc="",ec="";
+	for(int i=0;i<msg.length();i++)
+	{
+		if(msg.charAt(i)==' ')
+		{
+			
+		}
+		else
+		{
+			if(i%2==0)
+			{
+				ec+=(char)('a'+(msg.charAt(i)-97)%26);
+			}
+			else
+			{
+				oc+=(char)('a'+(msg.charAt(i)+-97)%26);
+			}
+		}
+	}
+	System.out.println(ec+" "+oc);
+}
+}
