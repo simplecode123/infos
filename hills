@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Hill {
+	public static void main(String args[]) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the plain text:");
+		String pt=sc.nextLine();
+		int l=pt.length();
+		System.out.println("Enter the key string of length "+(l*l)+ " :");
+		String ky=sc.nextLine();
+		int n=ky.length();
+		int x=0;
+		char s[]=pt.toCharArray();
+		char ke[]=ky.toCharArray();
+		int a[][] = new int[l][1];
+		int key[][] = new int[n][n];
+		for(int i=0;i<l;i++)
+			a[i][0]=(int)s[i]-65;
+		for(int i=0;i<l;i++) {
+			for(int j=0;j<l;j++) {
+				key[i][j]=ke[x]-65;x++;
+			}
+		}
+		int mult[][]=new int [5][5];
+		int sum=0;
+		for(int p=0;p<l;p++) {
+			for(int q=0;q<1;q++) {
+				for(int r=0;r<l;r++) {
+					sum=sum+key[p][r]*a[r][q];					
+				}
+				mult[p][q]=sum%26;
+				sum=0;
+			}
+		}
+		System.out.println("The cipher text is : ");
+		for(int p=0;p<l;p++)
+			for(int q=0;q<1;q++)
+				System.out.print((char)(mult[p][q]+65));
+	}
+}
